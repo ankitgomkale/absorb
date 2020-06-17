@@ -1,11 +1,11 @@
 package models
 
 import (
-	"github.com/jinzhu/gorm"
+	"time"
 )
 
-type candidate struct {
-	gorm.Model
+type Candidate struct {
+	ID        int64
 	Name string `json:"name"`
 	Email string `json:"email"`
 	PhoneNumber string `json:"phone_number"`
@@ -25,6 +25,9 @@ type candidate struct {
 	Linkedin	string `json:"linkedin"`
 	Website	string `json:"website"`
 	Github	string `json:"github"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt *time.Time `sql:"index"`
 }
 
-var Candidates []candidate
+var Candidates []Candidate
